@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
 		<TargetFramework>netcoreapp3.1</TargetFramework>
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<PackageId>SignalR.Orleans</PackageId>
+		<PackageId>Orleans.SignalR</PackageId>
 		<Title>SignalR.Orleans - Orleans backplane for SignalR Core</Title>
 		<Description>Orleans backplane for SignalR Core.</Description>
 		<PackageTags>AspNetCore Orleans</PackageTags>
@@ -15,7 +15,7 @@
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Authors>Sanjeev Manickam</Authors>
 		<Company />
-		<Product />
+		<Product>Orleans.SignalR</Product>
 		<PackageProjectUrl>https://github.com/zeus82/Orleans.SignalR</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/zeus82/Orleans.SignalR.git</RepositoryUrl>
 	</PropertyGroup>
