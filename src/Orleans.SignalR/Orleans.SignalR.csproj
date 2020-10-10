@@ -1,0 +1,34 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<PackageId>SignalR.Orleans</PackageId>
+		<Title>SignalR.Orleans - Orleans backplane for SignalR Core</Title>
+		<Description>Orleans backplane for SignalR Core.</Description>
+		<PackageTags>$(PackageTags) AspNetCore</PackageTags>
+		<PackageReleaseNotes></PackageReleaseNotes>
+		<IncludeSymbols>true</IncludeSymbols>
+		<IncludeSource>true</IncludeSource>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Authors>Sanjeev Manickam</Authors>
+		<Company />
+		<Product />
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- see https://gist.github.com/tebeco/a6e0d9a3885a0a36e702795219bd4fe9 -->
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+		<PackageReference Include="Microsoft.Orleans.CodeGenerator.MSBuild" Version="3.3.0">
+			<PrivateEntities>all</PrivateEntities>
+			<IncludeEntities>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeEntities>
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.Orleans.Core" Version="3.3.0" />
+		<PackageReference Include="Microsoft.Orleans.OrleansProviders" Version="3.3.0" />
+		<PackageReference Include="Microsoft.Orleans.Runtime.Abstractions" Version="3.3.0" />
+	</ItemGroup>
+</Project>

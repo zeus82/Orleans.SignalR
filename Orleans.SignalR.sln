@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FA522BA9-5B32-448A-AC5E-CACC96365466}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D5F6C9D0-E118-4BCD-AB1B-6435057BCD3D}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{C407D185-35CC-423B-B6DC-06AEEC18E484}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Grains", "sample\Grains\Grains.csproj", "{6F52CF58-B886-4B42-B6CA-EFA6290EB2A8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "sample\Interfaces\Interfaces.csproj", "{4696B0D5-4DC2-4FE1-BD2F-6B48C0084A80}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web", "sample\Web\Web.csproj", "{B3D2B0DE-FCA6-4567-8638-0A0C597B4D21}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orleans.SignalR", "src\Orleans.SignalR\Orleans.SignalR.csproj", "{879C44FF-0097-4C67-99FF-AA0257584C46}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Orleans.SignalR.Tests", "tests\Orleans.SignalR.Tests\Orleans.SignalR.Tests.csproj", "{3023141E-3909-4CBA-A4A1-8212C4FDE592}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6F52CF58-B886-4B42-B6CA-EFA6290EB2A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F52CF58-B886-4B42-B6CA-EFA6290EB2A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F52CF58-B886-4B42-B6CA-EFA6290EB2A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F52CF58-B886-4B42-B6CA-EFA6290EB2A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4696B0D5-4DC2-4FE1-BD2F-6B48C0084A80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4696B0D5-4DC2-4FE1-BD2F-6B48C0084A80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4696B0D5-4DC2-4FE1-BD2F-6B48C0084A80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4696B0D5-4DC2-4FE1-BD2F-6B48C0084A80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3D2B0DE-FCA6-4567-8638-0A0C597B4D21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3D2B0DE-FCA6-4567-8638-0A0C597B4D21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3D2B0DE-FCA6-4567-8638-0A0C597B4D21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3D2B0DE-FCA6-4567-8638-0A0C597B4D21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{879C44FF-0097-4C67-99FF-AA0257584C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{879C44FF-0097-4C67-99FF-AA0257584C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{879C44FF-0097-4C67-99FF-AA0257584C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{879C44FF-0097-4C67-99FF-AA0257584C46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3023141E-3909-4CBA-A4A1-8212C4FDE592}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3023141E-3909-4CBA-A4A1-8212C4FDE592}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3023141E-3909-4CBA-A4A1-8212C4FDE592}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3023141E-3909-4CBA-A4A1-8212C4FDE592}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6F52CF58-B886-4B42-B6CA-EFA6290EB2A8} = {C407D185-35CC-423B-B6DC-06AEEC18E484}
+		{4696B0D5-4DC2-4FE1-BD2F-6B48C0084A80} = {C407D185-35CC-423B-B6DC-06AEEC18E484}
+		{B3D2B0DE-FCA6-4567-8638-0A0C597B4D21} = {C407D185-35CC-423B-B6DC-06AEEC18E484}
+		{3023141E-3909-4CBA-A4A1-8212C4FDE592} = {FA522BA9-5B32-448A-AC5E-CACC96365466}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6CCA71A3-D387-4751-AB44-38D80CBD3820}
+	EndGlobalSection
+EndGlobal
