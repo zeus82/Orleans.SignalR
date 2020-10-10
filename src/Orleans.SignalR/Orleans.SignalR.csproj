@@ -8,7 +8,7 @@
 		<PackageId>SignalR.Orleans</PackageId>
 		<Title>SignalR.Orleans - Orleans backplane for SignalR Core</Title>
 		<Description>Orleans backplane for SignalR Core.</Description>
-		<PackageTags>$(PackageTags) AspNetCore</PackageTags>
+		<PackageTags>AspNetCore Orleans</PackageTags>
 		<PackageReleaseNotes></PackageReleaseNotes>
 		<IncludeSymbols>true</IncludeSymbols>
 		<IncludeSource>true</IncludeSource>
@@ -16,6 +16,8 @@
 		<Authors>Sanjeev Manickam</Authors>
 		<Company />
 		<Product />
+		<PackageProjectUrl>https://github.com/zeus82/Orleans.SignalR</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/zeus82/Orleans.SignalR.git</RepositoryUrl>
 	</PropertyGroup>
 
 	<ItemGroup>

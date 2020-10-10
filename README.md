@@ -13,15 +13,15 @@ Installation is performed via [NuGet](https://www.nuget.org/packages/SignalR.Orl
 
 From Package Manager:
 
-> PS> Install-Package SignalR.Orleans
+> PS> Install-Package Orleans.SignalR
 
 .Net CLI:
 
-> \# dotnet add package SignalR.Orleans
+> \# dotnet add package Orleans.SignalR
 
 Paket:
 
-> \# paket add SignalR.Orleans
+> \# paket add Orleans.SignalR
 
 # Configuration
 
