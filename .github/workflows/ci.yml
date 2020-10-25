@@ -1,0 +1,25 @@
+name: Build and Test
+
+on:
+  pull_request:
+    types: ['opened', 'synchronize']
+    paths:
+      - '**'
+
+jobs:
+  build:
+    name: Build and test backend
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.402
+    - name: Install dependencies
+      run: dotnet restore Orleans.SignalR.sln
+    - name: Build
+      run: dotnet build Orleans.SignalR.sln --configuration Release --no-restore
+    - name: Test
+      run: dotnet test Orleans.SignalR.sln --no-restore --configuration Release --verbosity normal
