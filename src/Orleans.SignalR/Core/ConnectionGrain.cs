@@ -1,12 +1,11 @@
-﻿using System.Buffers;
+﻿using Microsoft.AspNetCore.SignalR.Protocol;
+using Microsoft.Extensions.Logging;
+using Orleans.Concurrency;
+using Orleans.Streams;
+using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.SignalR.Protocol;
-using Microsoft.Extensions.Logging;
-using Orleans;
-using Orleans.Concurrency;
-using Orleans.Streams;
 
 namespace Orleans.SignalR.Core
 {
@@ -44,7 +43,7 @@ namespace Orleans.SignalR.Core
 
         public virtual async Task Add(string connectionId)
         {
-            var shouldWriteState = State.Connections.Add(connectionId);
+            var isAdded = State.Connections.Add(connectionId);
             if (!_connectionStreamHandles.ContainsKey(connectionId))
             {
                 var clientDisconnectStream = _streamProvider.GetStream<string>(SignalrConstants.CLIENT_DISCONNECT_STREAM_ID, connectionId);
@@ -52,13 +51,29 @@ namespace Orleans.SignalR.Core
                 _connectionStreamHandles[connectionId] = subscription;
             }
 
-            if (shouldWriteState)
+            if (isAdded)
                 await WriteStateAsync();
+        }
+
+        public virtual async Task<(bool IsAdded, int TotalCount)> AddAndCount(string connectionId)
+        {
+            var isAdded = State.Connections.Add(connectionId);
+            if (!_connectionStreamHandles.ContainsKey(connectionId))
+            {
+                var clientDisconnectStream = _streamProvider.GetStream<string>(SignalrConstants.CLIENT_DISCONNECT_STREAM_ID, connectionId);
+                var subscription = await clientDisconnectStream.SubscribeAsync(async (connId, _) => await Remove(connId));
+                _connectionStreamHandles[connectionId] = subscription;
+            }
+
+            if (isAdded)
+                await WriteStateAsync();
+
+            return (IsAdded: isAdded, TotalCount: State.Connections.Count);
         }
 
         public virtual async Task Remove(string connectionId)
         {
-            var shouldWriteState = State.Connections.Remove(connectionId);
+            var isRemoved = State.Connections.Remove(connectionId);
             if (_connectionStreamHandles.TryGetValue(connectionId, out var stream))
             {
                 await stream.UnsubscribeAsync();
@@ -70,10 +85,32 @@ namespace Orleans.SignalR.Core
                 await ClearStateAsync();
                 DeactivateOnIdle();
             }
-            else if (shouldWriteState)
+            else if (isRemoved)
             {
                 await WriteStateAsync();
             }
+        }
+
+        public virtual async Task<(bool IsRemoved, int TotalCount)> RemoveAndCount(string connectionId)
+        {
+            var isRemoved = State.Connections.Remove(connectionId);
+            if (_connectionStreamHandles.TryGetValue(connectionId, out var stream))
+            {
+                await stream.UnsubscribeAsync();
+                _connectionStreamHandles.Remove(connectionId);
+            }
+
+            if (State.Connections.Count == 0)
+            {
+                await ClearStateAsync();
+                DeactivateOnIdle();
+            }
+            else if (isRemoved)
+            {
+                await WriteStateAsync();
+            }
+
+            return (IsRemoved: isRemoved, TotalCount: State.Connections.Count);
         }
 
         public virtual Task Send(Immutable<InvocationMessage> message)

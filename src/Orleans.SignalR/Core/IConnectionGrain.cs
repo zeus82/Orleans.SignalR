@@ -16,10 +16,24 @@ namespace Orleans.SignalR.Core
         Task Add(string connectionId);
 
         /// <summary>
+        /// Add connection id to the group.
+        /// </summary>
+        /// <param name="connectionId">Connection id to add.</param>
+        /// <returns>If connection id was added successfully and total number of connectionIds</returns>
+        Task<(bool IsAdded, int TotalCount)> AddAndCount(string connectionId);
+
+        /// <summary>
         /// Remove the connection id to the group.
         /// </summary>
         /// <param name="connectionId">Connection id to remove.</param>
         Task Remove(string connectionId);
+
+        /// <summary>
+        /// Remove the connection id to the group.
+        /// </summary>
+        /// <param name="connectionId">Connection id to remove.</param>
+        /// <returns>If connection id was added successfully and total number of connectionIds</returns>
+        Task<(bool IsRemoved, int TotalCount)> RemoveAndCount(string connectionId);
 
         /// <summary>
         /// Gets the connection count in the group.
@@ -33,5 +47,6 @@ namespace Orleans.SignalR.Core
         /// <param name="args">Arguments to pass to the target method.</param>
         /// <param name="excludedConnectionIds">Connection ids to exclude.</param>
         Task SendExcept(string methodName, object[] args, IReadOnlyList<string> excludedConnectionIds);
+        
     }
 }
