@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.SignalR.Protocol;
 using Orleans.Concurrency;
 using Orleans.SignalR.Clients;
+using Orleans.SignalR.Connections;
 using Orleans.SignalR.Core;
 using Orleans.SignalR.Groups;
 using Orleans.SignalR.Users;
@@ -55,12 +56,12 @@ namespace Orleans
             grain.InvokeOneWay(g => g.Send(methodName, args));
         }
 
-        [Obsolete("Use Send instead", false)]
-        public static async Task SendSignalRMessage(this IConnectionGrain grain, string methodName, params object[] message)
-        {
-            var invocationMessage = new InvocationMessage(methodName, message).AsImmutable();
-            await grain.Send(invocationMessage);
-        }
+        //[Obsolete("Use Send instead", false)]
+        //public static async Task SendSignalRMessage(this IConnectionGrain grain, string methodName, params object[] message)
+        //{
+        //    var invocationMessage = new InvocationMessage(methodName, message).AsImmutable();
+        //    await grain.Send(invocationMessage);
+        //}
 
         /// <summary>
         /// Invokes a method on the hub.

@@ -1,17 +1,15 @@
-﻿using System.Buffers;
+﻿using Microsoft.AspNetCore.SignalR.Protocol;
+using Microsoft.Extensions.Logging;
+using Orleans.Concurrency;
+using Orleans.Streams;
+using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.SignalR.Protocol;
-using Microsoft.Extensions.Logging;
-using Orleans;
-using Orleans.Concurrency;
-using Orleans.Streams;
 
-namespace Orleans.SignalR.Core
+namespace Orleans.SignalR.Connections
 {
-    internal abstract class ConnectionGrain<TGrainState> : Grain<TGrainState>, IConnectionGrain
-        where TGrainState : ConnectionState, new()
+    internal class ConnectionGrain : Grain<ConnectionState>, IConnectionGrain
     {
         private readonly ILogger _logger;
         private IStreamProvider _streamProvider;
@@ -19,7 +17,7 @@ namespace Orleans.SignalR.Core
 
         protected ConnectionGrainKey KeyData;
 
-        internal ConnectionGrain(ILogger logger)
+        public ConnectionGrain(ILogger<ConnectionGrain> logger)
         {
             _logger = logger;
         }
