@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.SignalR.Protocol;
 using Microsoft.Extensions.Logging;
 using Orleans.Concurrency;
 using Orleans.Providers;
-using Orleans.SignalR.Core;
+using Orleans.SignalR.Connections;
 using Orleans.Streams;
 using System;
 using System.Collections.Generic;

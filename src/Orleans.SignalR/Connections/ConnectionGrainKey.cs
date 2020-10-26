@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace Orleans.SignalR.Core
+namespace Orleans.SignalR.Connections
 {
     [DebuggerDisplay("{DebuggerDisplay,nq}")]
     internal struct ConnectionGrainKey

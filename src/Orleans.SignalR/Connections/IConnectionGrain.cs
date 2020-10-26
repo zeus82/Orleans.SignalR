@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using Orleans.SignalR.Core;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Orleans;
 
-namespace Orleans.SignalR.Core
+namespace Orleans.SignalR.Connections
 {
     /// <summary>
     /// Grain interface Grouped of connections, such as user or custom group.
